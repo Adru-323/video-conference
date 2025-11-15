@@ -18,10 +18,13 @@ const io = connectToSocket(server);
 app.set("port", (process.env.PORT || 8000))
 // app.use(cors());  modified
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST"],
-  credentials: false
+    origin: [
+        "http://localhost:5173",
+        "https://video-conference-frontend-0lgz.onrender.com"
+    ],
+    credentials: true
 }));
+
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
